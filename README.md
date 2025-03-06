@@ -3,14 +3,14 @@
 Apply auto solvers to solve the Wordle game
 
 ## Solvers
-| Solver | Average Attempts | Time Consumption \n(1 is most) | Description |
+| Solver | Average Attempts | Time Consumption | Description |
 | ------ | ---------------- | ---------------- | ----------- |
-| `GreedySolver` | 3.6548 | 3 | a letter-frequency heuristic solver, very fast |
-| `GreedierSolver` | 3.6262 | 4 | a better letter-frequency heuristic solver, faster |
-| `BayesianSolver` | 3.6050 | 2 | bayesian search to find the word with highest entropy |
-| `BayesianEnhanceSolver` | 3.5998 | 1 | similar to `BayesianSolver` but with heauristic to handle the green positions |
-| `RandomSolver` | ~4 | | randomly select a word from the word list |
-| `FixedSolver` | 3.9835 | | select the word that in the middle of the word list. May be better to used as a standard of evaluation than `RandomSolver` |
+| `GreedySolver` | 3.6548 | 3 | A letter-frequency heuristic solver, very fast |
+| `GreedierSolver` | 3.6262 | 4 (least) | A better letter-frequency heuristic solver, faster |
+| `BayesianSolver` | 3.6050 | 2 | Apply Bayesian search to find the word with highest entropy |
+| `BayesianEnhanceSolver` | 3.5998 | 1 (most) | Similar to `BayesianSolver` but with heauristic to handle the green positions |
+| `RandomSolver` | ~4 | | Randomly select a word from the word list |
+| `FixedSolver` | 3.9835 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
 ![Figure_1](https://github.com/user-attachments/assets/589d46bc-2587-4bfc-9a6e-78569014b96e)
 
