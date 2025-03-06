@@ -4,6 +4,7 @@ Apply auto solvers to solve the Wordle game
 - `game.py`: A rough version of Wordle. Able to play manually
 - `test.py`: Test the solvers and provide an overview
 - `solvers.py`:
+
 | Solver | Average Attempts | Time Consumption | Description |
 | ------ | ---------------- | ---------------- | ----------- |
 | `GreedySolver` | 3.6548 | 3 | A letter-frequency heuristic solver |
