@@ -21,6 +21,7 @@ Apply auto solvers to solve the Wordle game
 
 ### BayesianSolver vs BayesianEnhanceSolver
 ![BayesianVSEnhance](https://github.com/user-attachments/assets/e0f6c9b3-4ee9-46cd-8eb5-1d4c967b2a81)
+
 Considering that Wordle allows only 6 attempts, BayesianEnhanceSolver is likely better than BayesianSolver
 
 ## Prerequisites (for visualization)
