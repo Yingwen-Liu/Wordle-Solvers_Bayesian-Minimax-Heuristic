@@ -3,7 +3,7 @@
 Apply auto solvers to solve the Wordle game
 
 ## Solvers
-| Solver | Average Attempts | Time Consumption (1 is most) | Description |
+| Solver | Average Attempts | Time Consumption \n(1 is most) | Description |
 | ------ | ---------------- | ---------------- | ----------- |
 | `GreedySolver` | 3.6548 | 3 | a letter-frequency heuristic solver, very fast |
 | `GreedierSolver` | 3.6262 | 4 | a better letter-frequency heuristic solver, faster |
