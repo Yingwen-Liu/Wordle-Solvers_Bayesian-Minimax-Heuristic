@@ -3,7 +3,7 @@
 Apply auto solvers to solve the Wordle game
 - `game.py`: A rough version of Wordle. Able to play manually
 - `test.py`: Test the solvers and provide an overview
-- `solvers.py`:
+- `solvers.py`: Able to manually test the selected solver
 
 | Solver | Average Attempts | Time Consumption | Description |
 | ------ | ---------------- | ---------------- | ----------- |
