@@ -9,7 +9,6 @@ Apply auto solvers to solve the Wordle game
 - `GreedierSolver`: a better letter-frequency heuristic solver, faster and more accurate
 - `RandomSolver`: randomly select a word from the word list
 - `FixedSolver`: select the word that in the middle of the word list. May be better to used as a standard of evaluation than `RandomSolver`
-
 ![Figure_1](https://github.com/user-attachments/assets/589d46bc-2587-4bfc-9a6e-78569014b96e)
 
 ## Prerequisites (for visualization)
