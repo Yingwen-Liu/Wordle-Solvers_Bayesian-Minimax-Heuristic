@@ -19,7 +19,7 @@ Apply auto solvers to solve the Wordle game
 | `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
 | `FixedSolver` | 3.9835 | - | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
-###***Note that `BayesianSolver` with `NormalHandler` is the only legal heuristic solver in the table above***
+###*Note that `BayesianSolver` with `NormalHandler` is the only legal heuristic solver in the table above
 
 ### With NormalHandler
 <img src="https://github.com/user-attachments/assets/be05f61d-addd-41cc-a20c-9d5f3448d108" alt="Figure_1" width="800"/>
