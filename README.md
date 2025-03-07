@@ -6,13 +6,13 @@ Apply auto solvers to solve the Wordle game
 - `solvers.py`: Able to manually test the selected solver
 
 ## Solvers
-| Solver | Average Attempts (with PositionHandler) | Time Consumption | Description |
-| ------ | ---------------- | ---------------- | ----------- |
-| `GreedySolver` | 3.6548 | Fast | A letter-frequency heuristic solver |
-| `GreedierSolver` | 3.6262 | Fast | A better letter-frequency heuristic solver |
-| `BayesianSolver` | 3.5998 | Very slow | Apply Bayesian search to find the word with highest entropy. May exceed 6 attempts |
-| `RandomSolver` | ~4.1 | | Randomly select a word from the word list |
-| `FixedSolver` | 3.9835 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
+| Solver | Average Attempts (with PositionHandler) | (with NormalHandler) | Time Consumption | Description |
+| ------ | --------------------------------------- | -------------------- | ----------- |
+| `GreedySolver` | 3.6548 | 3.8281 | Fast | A letter-frequency heuristic solver |
+| `GreedierSolver` | 3.6262 | 3.7990 |Fast | A better letter-frequency heuristic solver |
+| `BayesianSolver` | 3.5998 | 3.6050 | Very slow | Apply Bayesian search to find the word with highest entropy. May exceed 6 attempts |
+| `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
+| `FixedSolver` | 3.9835 | - | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
 ![Figure_1](https://github.com/user-attachments/assets/d2270ae9-5ec0-4930-8a4d-258972c6cb88)
 ## Handlers
