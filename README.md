@@ -20,7 +20,8 @@ Apply auto solvers to solve the Wordle game
 - `PositionHandler`: additional ability to assign the most frequent letter to the green positions (where the letter is correct)
 
 ### GreedySolver + PositionHandler vs GreedierSolver + PositionHandler
-![GreedyVSGreedier](https://github.com/user-attachments/assets/cd513b02-cefe-4b41-ada6-4beeeb4d8f93) ![Figure_1](https://github.com/user-attachments/assets/be05f61d-addd-41cc-a20c-9d5f3448d108)
+![GreedyVSGreedier](https://github.com/user-attachments/assets/cd513b02-cefe-4b41-ada6-4beeeb4d8f93)
+![Figure_1](https://github.com/user-attachments/assets/be05f61d-addd-41cc-a20c-9d5f3448d108)
 
 ### BayesianSolver + NormalHandler vs BayesianSolver + PositionHandler
 ![Figure_1](https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008)
