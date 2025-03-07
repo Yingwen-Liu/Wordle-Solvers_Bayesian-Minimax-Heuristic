@@ -7,7 +7,7 @@ Apply auto solvers to solve the Wordle game
 
 ## Solvers
 | Solver | Average Attempts (with PositionHandler) | (with NormalHandler) | Time Consumption | Description |
-| ------ | --------------------------------------- | -------------------- | ----------- |
+| ------ | --------------------------------------- | -------------------- | ---------------- | ----------- |
 | `GreedySolver` | 3.6548 | 3.8281 | Fast | A letter-frequency heuristic solver |
 | `GreedierSolver` | 3.6262 | 3.7990 |Fast | A better letter-frequency heuristic solver |
 | `BayesianSolver` | 3.5998 | 3.6050 | Very slow | Apply Bayesian search to find the word with highest entropy. May exceed 6 attempts |
