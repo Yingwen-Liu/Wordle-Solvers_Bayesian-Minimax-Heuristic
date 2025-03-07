@@ -26,6 +26,7 @@ Apply auto solvers to solve the Wordle game
 - `PositionHandler`: additional ability to assign the most frequent letter to the green positions (where the letter is correct)
 
 ### GreedySolver + PositionHandler vs GreedierSolver + PositionHandler
+*GreedierSolver is overall slightly better than GreedySolver*
 <img src="https://github.com/user-attachments/assets/cd513b02-cefe-4b41-ada6-4beeeb4d8f93" alt="Figure_1" width="500"/>
 
 ### BayesianSolver + NormalHandler vs BayesianSolver + PositionHandler
