@@ -7,7 +7,7 @@ def test_solver(agent):
     Test all solvers by looping through a subset of words from the database.
     Measures the average number of attempts needed to guess the correct word.
     """
-    progress_bar = tqdm(agent.db, desc=f"Testing {type(agent).__name__}")
+    progress_bar = tqdm(agent.db, desc=f"Testing {agent}")
     result = defaultdict(int)
     avg_attempt = 0
 
@@ -34,16 +34,25 @@ def test_solver(agent):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    solvers = [GreedySolver, GreedierSolver, BayesianSolver, BayesianEnhanceSolver, RandomSolver, FixedSolver]
+    # BayesianSolver, GreedySolver, GreedierSolver, RandomSolver, FixedSolver
+    # NormalHandler, PositionHandler
+    solvers = [
+        (BayesianSolver, NormalHandler),
+        (GreedySolver, NormalHandler),
+        (GreedierSolver, NormalHandler),
+        (FixedSolver, NormalHandler),
+    ]
+
+    solvers = [create(*s) for s in solvers]
     results = []
 
     words = load_words()
     for solver in solvers:
-        result = test_solver(solver(words))
+        agent = solver(words)
+        result = test_solver(agent)
 
         x, y = zip(*sorted(result.items()))
-        print(y)
-        plt.plot(x, y, label=solver.__name__, marker='o')
+        plt.plot(x, y, label=agent, marker='o')
     
     plt.xlabel("Attempts")
     plt.ylabel("Frequency")
