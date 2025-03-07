@@ -21,8 +21,6 @@ Apply auto solvers to solve the Wordle game
 
 ### Note that `BayesianSolver` with `NormalHandler` is the only legal heuristic solver in the table above
 
-
-
 ## Graphs
 ### With NormalHandler
 <img src="https://github.com/user-attachments/assets/be05f61d-addd-41cc-a20c-9d5f3448d108" alt="Figure_1" width="800"/>
