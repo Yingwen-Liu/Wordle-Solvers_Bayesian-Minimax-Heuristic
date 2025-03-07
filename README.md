@@ -13,9 +13,9 @@ Apply auto solvers to solve the Wordle game
 ## Solvers
 | Solver | Average Attempts (NormalHandler) | (PositionHandler) | Time Consumption | Description |
 | ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
+| `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
 | `GreedySolver` | 3.8281 | 3.6548 | Low | A letter-frequency heuristic solver |
 | `GreedierSolver` | 3.7990 | 3.6262 | Low | A better letter-frequency heuristic solver |
-| `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
 | `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
 | `FixedSolver` | 3.9835 | - | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
