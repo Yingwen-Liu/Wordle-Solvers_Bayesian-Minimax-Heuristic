@@ -23,9 +23,9 @@ Apply auto solvers to solve the Wordle game
 ![GreedyVSGreedier](https://github.com/user-attachments/assets/cd513b02-cefe-4b41-ada6-4beeeb4d8f93)
 
 ### BayesianSolver + NormalHandler vs BayesianSolver + PositionHandler
-![BayesianVSEnhance](https://github.com/user-attachments/assets/e0f6c9b3-4ee9-46cd-8eb5-1d4c967b2a81)
+![Figure_1](https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008)
 
-Considering that Wordle allows only 6 attempts, BayesianEnhanceSolver is likely better than BayesianSolver
+Considering that Wordle allows only 6 attempts, PositionHandler is likely better than NormalHandler
 
 ## Prerequisites (for visualization)
 - tqdm 
@@ -33,5 +33,3 @@ Considering that Wordle allows only 6 attempts, BayesianEnhanceSolver is likely 
 
 ## To-Do
 - [ ] Apply MCTS
-
-
