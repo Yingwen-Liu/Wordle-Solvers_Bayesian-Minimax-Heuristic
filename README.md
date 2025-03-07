@@ -8,7 +8,7 @@ Apply auto solvers to solve the Wordle game
 
 ## Handlers
 - `NormalHandler`: ability to remove words that not match the feedback from the word list.
-- `PositionHandler`: *Assume that you are allow to select any letters not in the word list*. Additional ability to assign the most frequent letters to the green positions (where the letter is correct)
+- `PositionHandler`: **Assume that you are allow to select any letters not in the word list**. Additional ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
 | Solver | Average Attempts (PositionHandler) | (NormalHandler) | Time Consumption | Description |
