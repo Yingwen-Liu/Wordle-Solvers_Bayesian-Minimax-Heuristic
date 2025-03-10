@@ -4,11 +4,12 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `words.txt`: 2308 Wordle words from [Silicon Valley Daily](https://svdaily.com/2022/04/15/all-of-the-words-used-in-ny-times-wordle-game/ )
 - `game.py`: A rough version of Wordle. Able to play manually
 - `test.py`: Test all the solvers and provide an overview
+- `guesser.py`: source code of the Wordle Solver app.
 - `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
 ## Handlers
-- `NormalHandler`: ability to remove words that not match the feedback from the word list.
-- `PositionHandler`: **Assume that you are allow to select any letters not in the word list**. Additional ability to assign the most frequent letters to the green positions (where the letter is correct)
+- `Handler`: Ability to remove words that not match the feedback from the word list.
+- `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
 | Solver | Average Attempts (NormalHandler) | (PositionHandler) | Time Consumption | Description |
@@ -22,8 +23,9 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 ### Note that `BayesianSolver` with `NormalHandler` is the only LEGAL heuristic solver in the table above
 
 ## Graphs
-### With NormalHandler
-<img src="https://github.com/user-attachments/assets/be05f61d-addd-41cc-a20c-9d5f3448d108" alt="Figure_1" width="800"/>
+### With Handler
+<img src="https://github.com/user-attachments/assets/a6f91bf4-8ea4-4e34-bbb7-529b471abc38" alt="SolversComparison" width="800"/>
+
 
 ### With PositionHandler
 <img src="https://github.com/user-attachments/assets/d2270ae9-5ec0-4930-8a4d-258972c6cb88" alt="Figure_1" width="800"/>
