@@ -28,7 +28,7 @@ def get_feedback(guess, word):
 
 
 # Handlers
-class NormalHandler:
+class Handler:
     def __init__(self, db):
         self.db = db    # read only words database
         self.words = db.copy()
@@ -83,9 +83,9 @@ class NormalHandler:
             return self.words[0]
         
         # Construct guess
-        return ''.join(self.heuristic())
+        return self.heuristic()
 
-class PositionHandler(NormalHandler):
+class PositionHandler(Handler):
     """Handle green positions by assigning them with the highest-frequncy letters"""
     def make_guess(self):
         if self.is_first_guess:
@@ -95,7 +95,7 @@ class PositionHandler(NormalHandler):
         if len(self.words) <= 2:
             return self.words[0]
         
-        guess = self.heuristic()
+        guess = list(self.heuristic())
         counts = self.get_counts()
 
         # Handle green positions by selecting high-frequency letters that are not already used
@@ -137,7 +137,7 @@ class PositionHandler(NormalHandler):
 class BayesianSolver:
     def heuristic(self):
         # Bayesian selection using precomputed entropy values
-        return list(max(self.words, key=self.compute_information_gain))
+        return max(self.words, key=self.compute_information_gain)
     
     def compute_information_gain(self, guess):
         feedback_distribution = defaultdict(int)
@@ -153,8 +153,31 @@ class BayesianSolver:
 
         return entropy
 
-class GreedySolver:
-    """Letter Frequency Heuristic Solver"""
+class MinimaxSolver:
+    def heuristic(self):
+        # Run minimax to find the best guess
+        best_guess = None
+        min_worst_case = float('inf')
+        
+        # Simulate all possible feedback scenarios for this guess
+        for guess in self.words:
+            feedback_groups = defaultdict(list)
+            for word in self.words:
+                feedback = get_feedback(guess, word)
+                feedback_groups[tuple(feedback)].append(word)
+            
+            # Calculate the worst-case scenario for this guess
+            worst_case = max(len(group) for group in feedback_groups.values())
+            
+            # Select the guess with the best worst-case outcome
+            if worst_case < min_worst_case:
+                min_worst_case = worst_case
+                best_guess = guess
+        
+        return best_guess
+
+class HeuristicSolver:
+    """Word Frequency Heuristic Solver"""
     def heuristic(self):
         counts_positions = [None] * self.length
         self.counts_overall = defaultdict(int)
@@ -171,80 +194,35 @@ class GreedySolver:
                     continue
                 
                 counts = sorted(counts.items(), key=lambda item: item[1], reverse=True)
-                counts_positions[i] = dict(counts)
+                counts_positions[i] = defaultdict(int, counts)
 
                 # Count the overall letter frenquency at non green position
                 for key, value in counts:
                     self.counts_overall[key] += value
         
-        return self.construct_guess(counts_positions)
-    
-    def construct_guess(self, counts_positions):
-        # Find maximum values for each key across all dictionaries
-        max_values = {key: max(d.get(key, 0) for d in counts_positions if d) for key in self.counts_overall}
+        self.counts_positions = counts_positions
+        return self.construct_guess()
         
-        # Construct initial guess
-        guess = list(self.words[0])
-
-        # Apply the most frequent letters to the guess
+    def construct_guess(self):
+        return max(self.words, key=self.compute_frequency)
+        
+    def compute_frequency(self, guess):
+        frequency = 0
         for i in range(self.length):
             if not self.green_pos[i]:
-                for key in counts_positions[i].keys():
-                    if counts_positions[i][key] == max_values[key]:
-                        guess[i] = key
-                        break
+                frequency += self.counts_positions[i][guess[i]]
         
-        return guess
-    
+        return frequency
+        
     def get_counts(self):
         return self.counts_overall
-
-class GreedierSolver(GreedySolver):
-    """A better Letter Frequency Heuristic Solver"""
-    def construct_guess(self, counts_positions):
-        # Resolve conflicts by selecting letters from the most frequent ones
-        pointers = [0] * self.length
-        while True:
-            assignments = {}
-            conflict = False
-
-            # For each dictionary, if it has any candidates available, pick the current candidate.
-            for i in range(self.length):
-                if not self.green_pos[i] and pointers[i] < len(counts_positions[i]):
-                    letter = list(counts_positions[i].keys())[pointers[i]]
-                    assignments.setdefault(letter, []).append(i)
-            
-            # Resolve conflicts: if multiple dictionaries choose the same letter.
-            for letter, indices in assignments.items():
-                if len(indices) > 1:
-                    conflict = True
-                    # Select the dictionary with the highest value for the candidate letter.
-                    best_index = max(indices, key=lambda i: counts_positions[i][letter])
-                    for i in indices:
-                        if i != best_index:
-                            pointers[i] += 1
-            if not conflict:
-                break
-
-        # Construct initial guess
-        guess = list(self.words[0])
-
-        # Apply the most frequent letters to the guess
-        for i in range(self.length):
-            if not self.green_pos[i] and pointers[i] < len(counts_positions[i]):
-                guess[i] = list(counts_positions[i].keys())[pointers[i]]
-
-        return guess
-
-class MCTSolver:
-    pass
 
 class RandomSolver:
     def make_guess(self):
         return random.choice(self.words)
 
 class FixedSolver:
-    def make_guess(self, pos=2):
+    def heuristic(self, pos=2):
         return self.words[len(self.words) // pos]
 
 def create(solver, handler):
@@ -259,10 +237,10 @@ def create(solver, handler):
 
 
 if __name__ == "__main__":
-    # BayesianSolver, GreedySolver, GreedierSolver, RandomSolver, FixedSolver
-    solver_class = BayesianSolver
-    # NormalHandler, PositionHandler
-    handler_class = PositionHandler
+    # BayesianSolver, MinimaxSolver, HeuristicSolver, RandomSolver, FixedSolver
+    solver_class = MinimaxSolver
+    # Handler, PositionHandler
+    handler_class = Handler
     
     Solver = create(solver_class, handler_class)
 
@@ -287,7 +265,7 @@ if __name__ == "__main__":
 
             attempt += 1
 
-        if input("Press Enter to play again...") == 'q':
+        if input("Press Enter to play again... "):
             break
 
         agent.reset()

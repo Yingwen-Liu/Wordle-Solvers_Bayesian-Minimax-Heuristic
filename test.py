@@ -34,13 +34,14 @@ def test_solver(agent):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    # BayesianSolver, GreedySolver, GreedierSolver, RandomSolver, FixedSolver
-    # NormalHandler, PositionHandler
+    # BayesianSolver, MinimaxSolver, HeuristicSolver, RandomSolver, FixedSolver
+    # Handler, PositionHandler
     solvers = [
-        (BayesianSolver, NormalHandler),
-        (GreedySolver, NormalHandler),
-        (GreedierSolver, NormalHandler),
-        (FixedSolver, NormalHandler),
+        (BayesianSolver, Handler),
+        (MinimaxSolver, Handler),
+        (HeuristicSolver, Handler),
+        (RandomSolver, Handler),
+        (FixedSolver, Handler),
     ]
 
     solvers = [create(*s) for s in solvers]
@@ -52,6 +53,7 @@ if __name__ == "__main__":
         result = test_solver(agent)
 
         x, y = zip(*sorted(result.items()))
+        print(x, y)
         plt.plot(x, y, label=agent, marker='o')
     
     plt.xlabel("Attempts")
