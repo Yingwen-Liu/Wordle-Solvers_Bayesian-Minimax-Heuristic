@@ -48,7 +48,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 ## Prerequisites (for visualization)
 - tqdm
 - matplotlib
-- Tkiner
+- Tkinter
 
 ## To-Do
 - [ ] Apply LSTM
