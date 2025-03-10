@@ -27,13 +27,17 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 ### With PositionHandler
 <img src="https://github.com/user-attachments/assets/d0516efd-cf93-4746-8b6a-b3309cf1caa1" alt="solvers_comparison_with_PositionHandler" width="800"/>
 
-### BayesianSolver + NormalHandler vs BayesianSolver + PositionHandler
-*Consider that Wordle allows only 6 attempts, PositionHandler is likely better than NormalHandler*
-<img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Figure_1" width="500"/>
+### BayesianSolver + Handler vs BayesianSolver + PositionHandler
+*Considering that Wordle allows only 6 attempts, PositionHandler is likely better than Handler*
+<img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Handler_vs_PositionHandler" width="500"/>
+
+### MinimaxSolver + Handler vs HeuristicSolver + Handler
+<img src="https://github.com/user-attachments/assets/80ecad11-dd30-4358-95af-3478a6776fd1" alt="Handler_vs_PositionHandler" width="500"/>
 
 ## Prerequisites (for visualization)
-- tqdm 
+- tqdm
 - matplotlib
+- Tkiner
 
 ## To-Do
 - [ ] Apply MCTS
