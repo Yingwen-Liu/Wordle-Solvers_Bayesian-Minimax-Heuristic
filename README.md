@@ -1,4 +1,4 @@
-# Wordle_Solvers
+# Wordle Solvers
 
 Apply auto solvers to solve the Wordle game
 - `words.txt`: 2308 Wordle words from [Silicon Valley Daily](https://svdaily.com/2022/04/15/all-of-the-words-used-in-ny-times-wordle-game/ )
