@@ -33,7 +33,7 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 <img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Handler_vs_PositionHandler" width="500"/>
 
 ### MinimaxSolver + Handler vs HeuristicSolver + Handler
-MinimaxSolver with Handler is slightly better than HeuristicSolver. However, with PositionHandler, HeuristicSolver is better
+*MinimaxSolver with Handler is slightly better than HeuristicSolver. However, with PositionHandler, HeuristicSolver is better*
 
 <img src="https://github.com/user-attachments/assets/80ecad11-dd30-4358-95af-3478a6776fd1" alt="Handler_vs_PositionHandler" width="500"/>
 
