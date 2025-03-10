@@ -7,6 +7,9 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `guesser.py`: source code of the Wordle Solver app.
 - `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
+## Releases
+Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle databse.
+
 ## Handlers
 - `Handler`: Ability to remove words that not match the feedback from the word list.
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
