@@ -9,6 +9,8 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 
 ## Releases
 Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle databse.
+[Release](https://github.com/Yingwen-Liu/Wordle_Solvers_Bayesian_Minimax_Heuristic/releases)
+
 
 ## Handlers
 - `Handler`: Ability to remove words that not match the feedback from the word list.
