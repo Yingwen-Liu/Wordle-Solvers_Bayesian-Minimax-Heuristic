@@ -20,7 +20,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
-| Solver | Average Attempts (Handler) | (PositionHandler) | Time Consumption | Description |
+| Solver | Average Attempts (Handler) | Average Attempts (PositionHandler) | Time Consumption | Description |
 | ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
 | `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
 | `MinimaxSolver` | 3.6786 | 3.6726 | High | Maximize the minimum gain |
