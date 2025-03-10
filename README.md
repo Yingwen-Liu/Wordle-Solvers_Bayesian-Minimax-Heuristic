@@ -15,8 +15,8 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 | Solver | Average Attempts (NormalHandler) | (PositionHandler) | Time Consumption | Description |
 | ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
 | `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
-| `MinimaxSolver` | 3.6050 | 3.5998 | Very high | Maximize the minimum gain |
-| `HeuristicSolver` | 3.8281 | 3.6548 | Low | A frequency heuristic solver |
+| `MinimaxSolver` | 3.6786 | 3.5998 | High | Maximize the minimum gain |
+| `HeuristicSolver` | 3.6626 | 3.6548 | Very low | A frequency heuristic solver |
 | `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
 | `FixedSolver` | 3.9835 | - | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
@@ -24,7 +24,7 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 
 ## Graphs
 ### With Handler
-<img src="https://github.com/user-attachments/assets/a6f91bf4-8ea4-4e34-bbb7-529b471abc38" alt="SolversComparison" width="800"/>
+<img src="https://github.com/user-attachments/assets/0844fd38-8be4-430d-8578-e70e1d1d7fb6" alt="solvers_comparison" width="800"/>
 
 
 ### With PositionHandler
