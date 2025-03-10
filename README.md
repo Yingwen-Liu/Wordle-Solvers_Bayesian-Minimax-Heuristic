@@ -14,8 +14,8 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 | Solver | Average Attempts (NormalHandler) | (PositionHandler) | Time Consumption | Description |
 | ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
 | `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
-| `GreedySolver` | 3.8281 | 3.6548 | Low | A letter-frequency heuristic solver |
-| `GreedierSolver` | 3.7990 | 3.6262 | Low | A better letter-frequency heuristic solver |
+| `MinimaxSolver` | 3.6050 | 3.5998 | Very high | Maximize the minimum gain |
+| `HeuristicSolver` | 3.8281 | 3.6548 | Low | A frequency heuristic solver |
 | `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
 | `FixedSolver` | 3.9835 | - | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
 
@@ -32,11 +32,6 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 *Considering that Wordle allows only 6 attempts, PositionHandler is likely better than NormalHandler*
 
 <img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Figure_1" width="500"/>
-
-### GreedySolver + PositionHandler vs GreedierSolver + PositionHandler
-*GreedierSolver is overall slightly better than GreedySolver*
-
-<img src="https://github.com/user-attachments/assets/cd513b02-cefe-4b41-ada6-4beeeb4d8f93" alt="Figure_1" width="500"/>
 
 ## Prerequisites (for visualization)
 - tqdm 
