@@ -17,6 +17,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 ## Handlers
 - `Handler`: Ability to remove words that not match the feedback from the word list.
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
+- `search_all=True`: set the search range as the entire database, not only the filtered words, which means more iterations and much slower execution
 
 ## Solvers
 | Solver            | Average Attempts (Handler) | (Handler *All) | (PositionHandler) | Time Consumption |
@@ -27,7 +28,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 | `RandomSolver`    | ~4.1                       | -                | -                 | -                |
 | `FixedSolver`     | 3.9853                     | -                | 3.9359            | -                |
 
-**All: set the seach range as the entire database, not only the filtered words, which means it will be much slower*
+**All: search_all=True*
 
 Description
 - `BayesianSolver`: Apply Bayesian search to find the word with highest entropy
