@@ -4,17 +4,25 @@ def load_words(path="words.txt"):
     with open(path, 'r') as f:
         return f.read().splitlines()
 
-def get_feedback(guess, answer):
+def get_feedback(guess, word):
     """Generate Wordle-style feedback for the guess."""
-    feedback = []
-    for g, a in zip(guess, answer):
-        if g == a:
-            feedback.append("🟩")  # Correct letter & position
-        elif g in answer:
-            feedback.append("🟨")  # Correct letter, wrong position
+    feedback = ["⬜"] * len(guess)
+    counts = {}
+    
+    # Identify exact matches
+    for i, (g, w) in enumerate(zip(guess, word)):
+        if g == w:
+            feedback[i] = "🟩"
         else:
-            feedback.append("⬜")  # Wrong letter
-    return " ".join(feedback)
+            counts[w] = counts.get(w, 0) + 1
+
+    # Identify misplaced letters
+    for i, g in enumerate(guess):
+        if feedback[i] == "⬜" and counts.get(g, 0) > 0:
+            feedback[i] = "🟨"
+            counts[g] -= 1  # Reduce count to prevent overuse
+
+    return ''.join(feedback)
 
 def main():
     words = load_words()
@@ -29,10 +37,11 @@ def main():
             while True:
                 guess = input(f"Attempt {attempt}/{attempts}: ").strip().upper()
 
-                if len(guess) != 5:
-                    print(f"Invalid input. Please enter a 5-letter word.")
-                else:
+                if len(guess) == 5:
                     break
+                if guess.lower() == 'q':
+                    raise Exception("Game quitted.")
+                print(f"Invalid input. Please enter a 5-letter word.")
 
             if guess == answer:
                 print("Congratulations! You guessed the word correctly!")
