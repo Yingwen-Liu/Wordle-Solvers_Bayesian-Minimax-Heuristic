@@ -7,12 +7,20 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `guesser.py`: source code of the Wordle Solver app.
 - `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
+## Releases
+Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle databse.
+
+> [Download HERE](https://github.com/Yingwen-Liu/Wordle_Solvers_Bayesian_Minimax_Heuristic/releases)
+
+*Note that Window Defender likes to delete the app :(*
+
+
 ## Handlers
 - `Handler`: Ability to remove words that not match the feedback from the word list.
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
-| Solver | Average Attempts (Handler) | (PositionHandler) | Time Consumption | Description |
+| Solver | Average Attempts (Handler) | Average Attempts (PositionHandler) | Time Consumption | Description |
 | ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
 | `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
 | `MinimaxSolver` | 3.6786 | 3.6726 | High | Maximize the minimum gain |
@@ -29,16 +37,18 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 
 ### BayesianSolver + Handler vs BayesianSolver + PositionHandler
 *Considering that Wordle allows only 6 attempts, PositionHandler is likely better than Handler*
+
 <img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Handler_vs_PositionHandler" width="500"/>
 
 ### MinimaxSolver + Handler vs HeuristicSolver + Handler
-MinimaxSolver with Handler is slightly better than HeuristicSolver. However, with PositionHandler, HeuristicSolver is better
+*The 2 different algorithm share a similar result, probably due to they are both based on letter frequency*
+
 <img src="https://github.com/user-attachments/assets/80ecad11-dd30-4358-95af-3478a6776fd1" alt="Handler_vs_PositionHandler" width="500"/>
 
 ## Prerequisites (for visualization)
 - tqdm
 - matplotlib
-- Tkiner
+- Tkinter
 
 ## To-Do
 - [ ] Apply LSTM
