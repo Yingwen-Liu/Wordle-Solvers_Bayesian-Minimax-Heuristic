@@ -8,25 +8,25 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
 ## Releases
-Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle databse.
+Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle database.
 
 > [Download HERE](https://github.com/Yingwen-Liu/Wordle_Solvers_Bayesian_Minimax_Heuristic/releases)
 
 *Note that Window Defender likes to delete the app :(*
-
 
 ## Handlers
 - `Handler`: Ability to remove words that not match the feedback from the word list.
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
-| Solver | Average Attempts (Handler) | Average Attempts (PositionHandler) | Time Consumption | Description |
-| ------ | -------------------------------- | ----------------- | ---------------- | ----------- |
-| `BayesianSolver` | 3.6050 | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
-| `MinimaxSolver` | 3.6786 | 3.6726 | High | Maximize the minimum gain |
-| `HeuristicSolver` | 3.6626 | 3.6141 | Very low | A frequency heuristic solver |
-| `RandomSolver` | ~4.1 | - | | Randomly select a word from the word list |
-| `FixedSolver` | 3.9835 | 3.9359 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
+| Solver | Average Attempts (Handler) | (Handler + *All) | (PositionHandler) | Time Consumption | Description |
+| ------ | -------------------------- | ---------------- | ----------------- | ---------------- | ----------- |
+| `BayesianSolver` | 3.6050 |  | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
+| `MinimaxSolver` | 3.6786 |  | 3.6726 | High | Maximize the minimum gain |
+| `HeuristicSolver` | 3.6626 |  | 3.6141 | Very low | A frequency heuristic solver |
+| `RandomSolver` | ~4.1 | - | - |  | Randomly select a word from the word list |
+| `FixedSolver` | 3.9835 | - | 3.9359 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
+*All: set the seach range as the entire database, not the filtered words.
 
 ## Graphs
 ### With Handler
