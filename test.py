@@ -34,14 +34,15 @@ def test_solver(agent):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    # BayesianSolver, MinimaxSolver, HeuristicSolver, RandomSolver, FixedSolver
-    # Handler, PositionHandler
+    # Solvers: BayesianSolver, MinimaxSolver, HeuristicSolver, RandomSolver, FixedSolver
+    # Handlers: Handler, PositionHandler
+    # (solver, handler, search_all)
     solvers = [
-        (BayesianSolver, Handler),
-        (MinimaxSolver, Handler),
-        (HeuristicSolver, Handler),
-        (RandomSolver, Handler),
-        (FixedSolver, Handler),
+        (BayesianSolver, Handler, True),
+        (MinimaxSolver, Handler, True),
+        (HeuristicSolver, Handler, True),
+        (RandomSolver, Handler, True),
+        (FixedSolver, Handler, True),
     ]
 
     solvers = [create(*s) for s in solvers]
