@@ -27,7 +27,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 | `RandomSolver`    | ~4.1                       | N/A              | -                 |                  |
 | `FixedSolver`     | 3.9835                     | N/A              | 3.9359            |                  |
 
-*All: set the seach range as the entire database, not the filtered words, which means more words need to check
+**All: set the seach range as the entire database, not the filtered words, which means more words need to check*
 
 - `BayesianSolver`: Apply Bayesian search to find the word with highest entropy
 - `MinimaxSolver`: Maximize the minimum gain. Solve in fewest steps
