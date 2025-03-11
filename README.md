@@ -26,6 +26,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 | `HeuristicSolver` | 3.6626 |  | 3.6141 | Very low | A frequency heuristic solver |
 | `RandomSolver` | ~4.1 | - | - |  | Randomly select a word from the word list |
 | `FixedSolver` | 3.9835 | - | 3.9359 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
+
 *All: set the seach range as the entire database, not the filtered words.
 
 ## Graphs
