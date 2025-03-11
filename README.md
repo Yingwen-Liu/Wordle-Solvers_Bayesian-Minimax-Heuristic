@@ -61,4 +61,4 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - Tkinter
 
 ## To-Do
-- [ ] Apply LSTM
+- [ ] Update graphs in README
