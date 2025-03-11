@@ -24,7 +24,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 | `BayesianSolver`  | 3.6050                     |                  | 3.5998            | Very high        |
 | `MinimaxSolver`   | 3.6786                     |                  | 3.6726            | High             |
 | `HeuristicSolver` | 3.6626                     |                  | 3.6141            | Very low         |
-| `RandomSolver`    | ~4.1                       | N/A              | -                 |                  |
+| `RandomSolver`    | ~4.1                       | N/A              | N/A               |                  |
 | `FixedSolver`     | 3.9835                     | N/A              | 3.9359            |                  |
 
 **All: set the seach range as the entire database, not only the filtered words, which means it will be much slower*
