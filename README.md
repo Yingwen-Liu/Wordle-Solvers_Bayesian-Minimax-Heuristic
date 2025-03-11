@@ -19,15 +19,21 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
-| Solver | Average Attempts (Handler) | (Handler + *All) | (PositionHandler) | Time Consumption | Description |
-| ------ | -------------------------- | ---------------- | ----------------- | ---------------- | ----------- |
-| `BayesianSolver` | 3.6050 |  | 3.5998 | Very high | Apply Bayesian search to find the word with highest entropy |
-| `MinimaxSolver` | 3.6786 |  | 3.6726 | High | Maximize the minimum gain |
-| `HeuristicSolver` | 3.6626 |  | 3.6141 | Very low | A frequency heuristic solver |
-| `RandomSolver` | ~4.1 | - | - |  | Randomly select a word from the word list |
-| `FixedSolver` | 3.9835 | - | 3.9359 | | Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver` |
+| Solver            | Average Attempts (Handler) | (Handler + *All) | (PositionHandler) | Time Consumption |
+| ----------------- | -------------------------- | ---------------- | ----------------- | ---------------- |
+| `BayesianSolver`  | 3.6050                     |                  | 3.5998            | Very high        |
+| `MinimaxSolver`   | 3.6786                     |                  | 3.6726            | High             |
+| `HeuristicSolver` | 3.6626                     |                  | 3.6141            | Very low         |
+| `RandomSolver`    | ~4.1                       | N/A              | -                 |                  |
+| `FixedSolver`     | 3.9835                     | N/A              | 3.9359            |                  |
 
-*All: set the seach range as the entire database, not the filtered words.
+*All: set the seach range as the entire database, not the filtered words, which means more words need to check
+
+- `BayesianSolver`: Apply Bayesian search to find the word with highest entropy
+- `MinimaxSolver`: Maximize the minimum gain. Solve in fewest steps
+- `HeuristicSolver`: Make guess based on the most frequently word
+- `RandomSolver`: Randomly select a word from the word list
+- `FixedSolver`: Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver`
 
 ## Graphs
 ### With Handler
