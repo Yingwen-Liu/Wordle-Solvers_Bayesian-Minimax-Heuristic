@@ -21,9 +21,9 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 *Note that Window Defender likes to delete the app :(*
 
 ## Handlers
-- `Handler`: Ability to remove words that not match the feedback from the word list.
-- `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
+- `Handler`: Ability to remove words that not match the feedback from the word list
 - `search_all=True`: set the search range as the entire database, not only the filtered words, which means more iterations and much slower execution
+- `PositionHandler`: **ILLEGAL approach. Assume you are allow to select any letters not in the word list**. Ability to assign the most frequent letters to the green positions (where the letter is correct)
 
 ## Solvers
 | Solver            | Average Attempts (Handler) | (Handler *All) | (PositionHandler) | Time Consumption |
