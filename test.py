@@ -38,11 +38,11 @@ if __name__ == "__main__":
     # Handlers: Handler, PositionHandler
     # (solver, handler, search_all)
     solvers = [
-        (BayesianSolver, Handler, True),
-        (MinimaxSolver, Handler, True),
-        (HeuristicSolver, Handler, True),
-        (RandomSolver, Handler, True),
-        (FixedSolver, Handler, True),
+        (BayesianSolver, PositionHandler, False),
+        (MinimaxSolver, PositionHandler, False),
+        (HeuristicSolver, PositionHandler, False),
+        #(RandomSolver, Handler, False),
+        #(FixedSolver, Handler, False),
     ]
 
     solvers = [create(*s) for s in solvers]

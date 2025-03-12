@@ -11,11 +11,11 @@ HANDLER_NAMES = [h.__name__ for h in HANDLERS]
 WORDS = load_words()
 WORD_LEN = len(WORDS[0])
 
-COLOR_MAP = {'green': 1, 'yellow': 0, 'white': -1}
+COLOR_MAP = {'green': 1, 'yellow': 0, 'black': -1}
 COLOR_CYCLE = {
     'green': ('yellow', 'black'),
-    'yellow': ('white', 'black'),
-    'white': ('green', 'white'),
+    'yellow': ('black', 'white'),
+    'black': ('green', 'white'),
 }
 
 # --- Global variables ---
