@@ -3,6 +3,7 @@
 Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `words.txt`: 2308 Wordle words from [Silicon Valley Daily](https://svdaily.com/2022/04/15/all-of-the-words-used-in-ny-times-wordle-game/ )
 - `game.py`: A rough version of Wordle. Able to play manually
+- `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 - `test.py`: Test selected solvers and generate an overview
 - `test_result.py`: a pre-generated overview of all the solvers
 
@@ -11,8 +12,6 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `wordle_solver.py`: source code of the Wordle Solver app
 
   <img src="https://github.com/user-attachments/assets/6d09be33-12c8-4682-acb4-d7ac95f035f6" alt="ScreenShotApp" width="200"/>
-
-- `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
 ## Releases
 Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle database.
