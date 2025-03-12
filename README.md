@@ -35,6 +35,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 | `FixedSolver`     | 3.9853                     | -              | 3.9359            | -                |
 
 **All: search_all=True*
+**In general, the time consumption of Handler *All >> PositionHandler >= Handler
 
 ### Description
 - `BayesianSolver`: Apply Bayesian search to find the word with highest entropy
