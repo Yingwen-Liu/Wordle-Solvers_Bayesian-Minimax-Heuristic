@@ -44,7 +44,7 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - `RandomSolver`: Randomly select a word from the word list
 - `FixedSolver`: Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver`
 
-## Graphs
+## Graphs (from `test_result.py`)
 ### With Handler search_all=True
 <img src="https://github.com/user-attachments/assets/23a1e179-8dae-4a68-8e75-e2a50746bb78" alt="All" width="800"/>
 
