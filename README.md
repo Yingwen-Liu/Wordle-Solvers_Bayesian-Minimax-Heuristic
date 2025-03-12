@@ -22,12 +22,12 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 
 ## Solvers
 | Solver            | Average Attempts (Handler) | (Handler *All) | (PositionHandler) | Time Consumption |
-| ----------------- | -------------------------- | ---------------- | ----------------- | ---------------- |
-| `BayesianSolver`  | 3.6050                     | 3.5613           | 3.5998            | Very high        |
-| `MinimaxSolver`   | 3.6786                     | 3.6856           | 3.6726            | High             |
-| `HeuristicSolver` | 3.6626                     | 3.7397           | 3.6141            | Very low         |
-| `RandomSolver`    | ~4.1                       | -                | -                 | -                |
-| `FixedSolver`     | 3.9853                     | -                | 3.9359            | -                |
+| ----------------- | -------------------------- | -------------- | ----------------- | ---------------- |
+| `BayesianSolver`  | 3.6050                     | 3.5613         | 3.5998            | Very high        |
+| `MinimaxSolver`   | 3.6786                     | 3.6856         | 3.6726            | High             |
+| `HeuristicSolver` | 3.6626                     | 3.7397         | 3.6141            | Very low         |
+| `RandomSolver`    | ~4.1                       | -              | -                 | -                |
+| `FixedSolver`     | 3.9853                     | -              | 3.9359            | -                |
 
 **All: search_all=True*
 
@@ -39,24 +39,23 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - `FixedSolver`: Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver`
 
 ## Graphs
-### With Handler All
+### With Handler search_all=True
 <img src="https://github.com/user-attachments/assets/23a1e179-8dae-4a68-8e75-e2a50746bb78" alt="All" width="800"/>
 
-### With Handler
-
+### With Handler search_all=False
+<img src="https://github.com/user-attachments/assets/90d4517a-29bf-42e5-ab7b-27aa35c4f8af" alt="Normal" width="800"/>
 
 ### With PositionHandler
-<img src="https://github.com/user-attachments/assets/d0516efd-cf93-4746-8b6a-b3309cf1caa1" alt="solvers_comparison_with_PositionHandler" width="800"/>
+<img src="https://github.com/user-attachments/assets/9984de40-6d3f-4c99-b7fa-271f961474e0" alt="Position" width="800"/>
 
-### BayesianSolver + Handler vs BayesianSolver + PositionHandler
-*Considering that Wordle allows only 6 attempts, PositionHandler is likely better than Handler*
+### BayesianSolvers
+<img src="https://github.com/user-attachments/assets/d368e4ed-6a0a-4f92-9e4b-8b5c9cf975ff" alt="Bayesian" width="500"/>
 
-<img src="https://github.com/user-attachments/assets/99c86906-404d-4d8a-8bb0-8798d4ca0008" alt="Handler_vs_PositionHandler" width="500"/>
+### MinimaxSolvers
+<img src="https://github.com/user-attachments/assets/2434f789-b165-4558-b6eb-8d786bd66eb8" alt="Minimax" width="500"/>
 
-### MinimaxSolver + Handler vs HeuristicSolver + Handler
-*The 2 different algorithm share a similar result, probably due to they are both based on letter frequency*
-
-<img src="https://github.com/user-attachments/assets/80ecad11-dd30-4358-95af-3478a6776fd1" alt="Handler_vs_PositionHandler" width="500"/>
+### HeuristicSolver
+<img src="https://github.com/user-attachments/assets/0638b18a-7afe-4fab-9c69-0293f7788939" alt="Heuristic" width="500"/>
 
 ## Prerequisites (for visualization)
 - tqdm
