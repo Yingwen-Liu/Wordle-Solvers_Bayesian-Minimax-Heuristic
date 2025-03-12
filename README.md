@@ -10,7 +10,7 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 
 - `wordle_solver.py`: source code of the Wordle Solver app
 
-  <img src="https://github.com/user-attachments/assets/6d09be33-12c8-4682-acb4-d7ac95f035f6" alt="ScreenShotApp" width="300"/>
+  <img src="https://github.com/user-attachments/assets/6d09be33-12c8-4682-acb4-d7ac95f035f6" alt="ScreenShotApp" width="200"/>
 
 - `solvers.py`: Includes **Handlers** and **Solvers**. Able to manually test the selected solver
 
