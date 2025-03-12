@@ -39,8 +39,11 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 - `FixedSolver`: Select the word that in the middle of the word list. A better standard of evaluation than `RandomSolver`
 
 ## Graphs
+### With Handler All
+<img src="https://github.com/user-attachments/assets/23a1e179-8dae-4a68-8e75-e2a50746bb78" alt="All" width="800"/>
+
 ### With Handler
-<img src="https://github.com/user-attachments/assets/0844fd38-8be4-430d-8578-e70e1d1d7fb6" alt="solvers_comparison" width="800"/>
+
 
 ### With PositionHandler
 <img src="https://github.com/user-attachments/assets/d0516efd-cf93-4746-8b6a-b3309cf1caa1" alt="solvers_comparison_with_PositionHandler" width="800"/>
