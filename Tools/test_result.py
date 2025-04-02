@@ -60,6 +60,7 @@ def save_image():
 # Create Tkinter window
 root = tk.Tk()
 root.title("Solver Comparison")
+root.protocol("WM_DELETE_WINDOW", quit)  # Bind the close button to quit() function
 
 # Create Matplotlib figure
 fig, ax = plt.subplots()
@@ -81,22 +82,22 @@ canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 # Create checkboxes in Tkinter window
 control_frame = tk.Frame(root)
-control_frame.pack(side=tk.BOTTOM, fill=tk.X)
+control_frame.pack(side=tk.BOTTOM)
 
 checkbox_states = {}
 row, col = 0, 0  # Row and column for grid layout
 for label in solvers_data.keys():
     checkbox_states[label] = tk.BooleanVar(value=True)  # Default: checked
-    chk = tk.Checkbutton(control_frame, text=label, variable=checkbox_states[label], command=toggle_visibility)
-    chk.grid(row=row, column=col, padx=10, pady=2, sticky="w")
+    chk = tk.Checkbutton(control_frame, text=label, font=20, variable=checkbox_states[label], command=toggle_visibility)
+    chk.grid(row=row, column=col, padx=30, sticky="w")
     
     col += 1
-    if col > 2:  # Move to the next row after 3 checkboxes
+    if col > 1:  # Move to the next row after 2 checkboxes
         col = 0
         row += 1
 
 # Save Image button
-tk.Button(root, text="Save Image", command=save_image).pack(pady=10)
+tk.Button(root, text="Save Image", font=20, command=save_image).pack(pady=10)
 
 # Run Tkinter main loop
 root.mainloop()
