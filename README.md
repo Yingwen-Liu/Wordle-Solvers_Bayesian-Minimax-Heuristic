@@ -48,19 +48,19 @@ Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with th
 
 ## Graphs (from `test_result.py`)
 ### All (search_all=True)
-<img src="https://github.com/user-attachments/assets/23a1e179-8dae-4a68-8e75-e2a50746bb78" alt="All" width="800"/>
+<img src="https://github.com/user-attachments/assets/76d03acf-625f-489a-954b-c671ed363e90" alt="All" width="800"/>
 
 ### Filtered (search_all=False)
-<img src="https://github.com/user-attachments/assets/90d4517a-29bf-42e5-ab7b-27aa35c4f8af" alt="Normal" width="800"/>
+<img src="https://github.com/user-attachments/assets/cf2841a8-0023-4e7d-aaed-6f485b8d955d" alt="Filtered" width="800"/>
 
 ### Bayesian Solvers
 <img src="https://github.com/user-attachments/assets/d368e4ed-6a0a-4f92-9e4b-8b5c9cf975ff" alt="Bayesian" width="500"/>
 
 ### Minimax Solvers
-<img src="https://github.com/user-attachments/assets/2434f789-b165-4558-b6eb-8d786bd66eb8" alt="Minimax" width="500"/>
+<img src="https://github.com/user-attachments/assets/4864f342-d4e9-4331-8f89-be9dc29402b5" alt="Minimax" width="500"/>
 
 ### Heuristic Solvers
-<img src="https://github.com/user-attachments/assets/0638b18a-7afe-4fab-9c69-0293f7788939" alt="Heuristic" width="500"/>
+<img src="https://github.com/user-attachments/assets/baa00c92-b8f0-4458-a571-fe5c49d84855" alt="Heuristic" width="500"/>
 
 ## Prerequisites
 - tqdm
