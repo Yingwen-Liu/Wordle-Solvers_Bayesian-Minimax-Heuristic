@@ -27,40 +27,31 @@ def get_feedback(guess, word):
     return feedback
 
 
-# --- Handlers ---
+# --- Handler ---
 class Handler:
     """Basic algorithm to start the game and filter the words based on the feedback"""
-    def __init__(self, db, search_all):
+    def __init__(self, db, search_all=True):
         self.db = db    # read only words database
         self.words = db.copy()
-        self.length = len(db[0])    # word length
 
-        # Set up the search range, the entire database or the filtered words
+        # Set up the search range
         if search_all:
+            self.search_all = "All"
             self.search_range = db
         else:
+            self.search_all = "Filtered"
             self.search_range = self.words
-
-        # Track the feedback of the green position
-        self.green_pos = [0] * self.length
-
-        # Prevent duplicate computation on the first guess 
-        self.is_first_guess = False
-        self.init_guess = self.make_guess()     # Store the first guess
-        self.is_first_guess = True
+    
+    def __repr__(self):
+        return self.__class__.__name__ + self.search_all
     
     def reset(self):
         # Reset the word list after each game
         self.words[:] = self.db.copy()
-        self.is_first_guess = True
-
-        self.green_pos = [0] * self.length
     
     def filter_words(self, guess, feedback):
         # Filter the word based on the feedback
         self.words[:] = [word for word in self.words if self.match_feedback(guess, word, feedback)]
-
-        self.green_pos = [guess[i] if feedback[i] == 1 else self.green_pos[i] for i in range(self.length)]
     
     def match_feedback(self, guess, word, feedback):
         # A faster version with early exist strategy of get_feedback(guess, word) == feedback
@@ -85,66 +76,18 @@ class Handler:
         return True
     
     def make_guess(self):
-        if self.is_first_guess:
-            self.is_first_guess = False
-            return self.init_guess
-
-        if len(self.words) <= 2:
+        len_words = len(self.words)
+        if len_words == 0:
+            return
+        elif len_words <= 2:
             return self.words[0]
         
         # Construct guess
         return self.construct_guess()
 
-class PositionHandler(Handler):
-    """Handle green positions by assigning them with the highest-frequncy letters"""
-    def make_guess(self):
-        if self.is_first_guess:
-            self.is_first_guess = False
-            return self.init_guess
-
-        if len(self.words) <= 2:
-            return self.words[0]
-        
-        guess = list(self.construct_guess())
-        counts = self.get_counts()
-
-        # Handle green positions by selecting high-frequency letters that are not already used
-        if any(self.green_pos) == 1:
-            for i in range(self.length):
-                if not self.green_pos[i] and guess[i] in counts:
-                    del counts[guess[i]]
-            
-            sorted_letters = sorted(counts, key=lambda k: counts[k])
-
-            for i in range(self.length):
-                if self.green_pos[i] and sorted_letters:
-                    guess[i] = sorted_letters.pop()
-
-        return ''.join(guess)
-    
-    def get_counts(self):
-        # Count letter frequency at non green position
-        counts = defaultdict(int)
-
-        for i in range(self.length):
-            if not self.green_pos[i]:
-                counts = defaultdict(int)
-                for word in self.words:
-                    counts[word[i]] += 1
-                
-                if len(counts) == 1:    # If only one letter remains, mark it as green
-                    self.green_pos[i] = 1
-                    continue
-
-                # Count the overall letter frenquency at non green position
-                for key, value in counts.items():
-                    counts[key] += value
-        
-        return counts
-
 
 # --- Solvers ---
-class BayesianSolver:
+class Bayesian(Handler):
     """Apply Bayesian search to find the word with highest entropy in the word list"""
     def construct_guess(self):
         # Bayesian selection using precomputed entropy values
@@ -164,7 +107,7 @@ class BayesianSolver:
 
         return entropy
 
-class MinimaxSolver:
+class Minimax(Handler):
     """Maximize the minimum gain"""
     def construct_guess(self):
         # Run minimax to find the best guess
@@ -188,8 +131,23 @@ class MinimaxSolver:
         
         return best_guess
 
-class HeuristicSolver:
+class Heuristic(Handler):
     """Letter Frequency Heuristic Solver"""
+    def __init__(self, db, search_all):
+        super().__init__(db, search_all)
+
+        self.length = len(db[0])    # word length
+        # Track the feedback of the green position
+        self.green_pos = [0] * self.length
+    
+    def reset(self):
+        super().reset()
+        self.green_pos = [0] * self.length
+    
+    def filter_words(self, guess, feedback):
+        super().filter_words(guess, feedback)
+        self.green_pos = [guess[i] if feedback[i] == 1 else self.green_pos[i] for i in range(self.length)]
+
     def construct_guess(self):
         position_letter_frequencies = [None] * self.length
         self.overall_letter_frequencies = Counter()
@@ -221,38 +179,32 @@ class HeuristicSolver:
     def get_counts(self):
         return self.overall_letter_frequencies 
 
-class RandomSolver:
+class Random(Handler):
     """Randonly select a word from the word list"""
-    def make_guess(self):
+    def __repr__(self):
+        return self.__class__.__name__
+    
+    def make_guess(self, *_):
         return random.choice(self.words)
 
-class FixedSolver:
+class Fixed(Handler):
     """Select the word at a fixed position the word list"""
+    def __repr__(self):
+        return self.__class__.__name__
+    
     def construct_guess(self, pos=2):
         return self.words[len(self.words) // pos]
 
-def create(solver, handler, search_all):
-    """Create a solver class with handler"""
-    class Solver(solver, handler):
-        def __init__(self, db):
-            super().__init__(db, search_all)
-
-        def __repr__(self):
-            return f"{solver.__name__} {handler.__name__} {"All" if search_all else ''}"
-        
-    return Solver
-
 
 if __name__ == "__main__":
-    # BayesianSolver, MinimaxSolver, HeuristicSolver, RandomSolver, FixedSolver
-    solver_class = HeuristicSolver
-    # Handler, PositionHandler
-    handler_class = Handler
+    # Bayesian, Minimax, Heuristic, Random, Fixed
+    Solver = Bayesian
+
     # Choose to whether search the entire database or not
     search_all = False
 
     db = load_words()
-    agent = create(solver_class, handler_class, search_all)(db)
+    agent = Solver(db, search_all)
 
     print("Current solver:", agent)
 
