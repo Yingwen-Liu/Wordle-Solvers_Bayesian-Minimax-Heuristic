@@ -4,14 +4,16 @@ Apply Bayesian/Minimax/Heuristic solvers to solve the Wordle game
 - `words.txt`: 2308 Wordle words from [Silicon Valley Daily](https://svdaily.com/2022/04/15/all-of-the-words-used-in-ny-times-wordle-game/ )
 - `Tools\game.py`: A rough version of Wordle. Run to play manually
 - `solvers.py`: Includes **Handler** and **Solvers**. Run to manually test the selected solver
+- `tree.db`: A sqlite database, a tree-like structure to store pre-trained solvers
+- `decision_tree.py`: Read and update `tree.db`
 - `test.py`: Run to test all solvers and generate an overview
 - `Tools\test_result.py`: a pre-generated overview for all the solvers
 
-  <img src="https://github.com/user-attachments/assets/ca97416d-edef-4985-a4dc-37eca33f923b" alt="ScreenShot" width="400"/>
+  <img src="https://github.com/user-attachments/assets/2e477f14-ce7c-46d4-8606-e946492cf0b5" alt="ScreenShot" width="400"/>
 
 - `wordle_solver.py`: source code of the Wordle Solver app
 
-  <img src="https://github.com/user-attachments/assets/6d09be33-12c8-4682-acb4-d7ac95f035f6" alt="ScreenShotApp" width="200"/>
+  <img src="https://github.com/user-attachments/assets/31633650-d056-4bad-8a0f-9fae2fce5679" alt="ScreenShotApp" width="200"/>
 
 ## Releases
 Download both `WordleSolver.exe` and `word.txt`. You can update word.txt with the newest Wordle database.
